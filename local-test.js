@@ -1,0 +1,13 @@
+const lambdaFn = require('./index');
+
+const testEvent = {
+   methodArn: "arn:aws:execute-api:us-east-1:1234567890123:example/dev/POST",
+   authorizationToken: "eyJraWQiOiJSd1I0MnUwVW4wXzFoMXJIWTZuZVhsd1FLZGtiUVJYeWJJcHdteGlPQmNjIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULmFSQ2VSbG1IN05sS2xveFRIemFjR1dHOUNTc2VyOVNMakE0cUlxNllZYnMiLCJpc3MiOiJodHRwczovL2Rldi0zMTA5NzU1MS5va3RhLmNvbS9vYXV0aDIvYXVzOG8wMHp2bWxHaFRrb3Q1ZDciLCJhdWQiOiJ0ZXN0LmF1ZGllbmNlIiwiaWF0IjoxNjc4NTY0Nzk1LCJleHAiOjE2Nzg1NjgzOTUsImNpZCI6IjBvYThuemh5ZGk2dDhjRnF3NWQ3Iiwic2NwIjpbImFwcF9hY2Nlc3MiXSwic3ViIjoiMG9hOG56aHlkaTZ0OGNGcXc1ZDcifQ.iMQTRes7RvG3MS1PFzEaeF-WLyO3deIItBWgR9Fco6lut1MDFw9MxidEqBFrLDU6LFcMoyIu9-_DxUApkJJ0rDRuozEIRon_WFdSqsg8AJ4mEBnTmr6-N_z2S8AEOuX_qm5_flsvjpyqgR6p7TRjsUJNYMoo9ybKTSLBINdWVJ9ZRaldJBJgU3ruBSYEGL1hMBdYJypaUsDD15weBnWH6oFT2TQ9vHM63DQ5CBgQ6djsgoowVt8nChkvKItjLCZn1sZ5Xjb1WAX6MoteRwBFjK9bFXCZtA3_8D64MZGOzfvO66Sf1_Vlr4qF3Ee9DjYER5XSQqmUCe28-wEsMO4luQ"
+};
+
+async function callOktaValidator(){
+   const policy = await lambdaFn.handler(testEvent, {})
+   console.log(JSON.stringify(policy, null, 4));
+}
+
+callOktaValidator();
